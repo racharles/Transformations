@@ -1,6 +1,6 @@
 # Transformations
-A Processing sketch made for Media Arts at Webb to explore programming as an art form
-Uses the colors of the pixels of an image to determine the behavior of particles that move in a system
+A Processing sketch made for Media Arts at Webb to explore programming as an art form.\
+Uses the colors of the pixels of an image to determine the behavior of particles that move in a system.
 # Instructions
 To run, open transformations.pde file with Processing https://processing.org/download/ and click the play button.
 ### Replace with a different picture
