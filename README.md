@@ -1,5 +1,2 @@
 # Transformations
-a moving picture with processing
-
-inspired by: Murasaki's Impressionist Blobs
-             https://codepen.io/murasaki/pen/BmOzMP
+To run, open with Processing https://processing.org/download/ and click the play button
