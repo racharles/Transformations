@@ -7,5 +7,5 @@ After downloading the files, open the transformations.pde file inside the transf
 * find any low resolution image (about less than 200 pixels wide/long)
 * add the picture to the data folder in transformations folder
 * change l_res = loadImage("picture2.jpg"); to the name of your picture ex. loadImage("monalisa.png")
-* change size(600,500) to size(length of picture pixels * 6, width of picture pixels * 6)
+* change size(600,500) to size(length of picture * 6, width of picture * 6)
     * note: size() only accepts integer values, not variables
