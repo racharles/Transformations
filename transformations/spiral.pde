@@ -1,7 +1,7 @@
 class Spiral {
     float x;
     float y;
-    float r = 0;
+    float r;
     float theta;
     float px;
     float py;

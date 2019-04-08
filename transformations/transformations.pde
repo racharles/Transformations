@@ -21,11 +21,12 @@ void setup() {
     noStroke();
     //sort and copy the pixels of img into objects that can be moved
     sort(l_res);
+    l_res.resize(width, height);
 }
 
 void draw() {
-    //background(img);
-    background(0);
+    background(l_res);
+    //background(255);
     //move spiral objects
     for (int i = 0; i < spirals.length; ++i) {
         spirals[i].move();
@@ -47,10 +48,15 @@ void sort(PImage img) {
 
             //sort by color
             if (loc < img.pixels.length) {
-                //check if pixel is past the red threshold on image
-                if (r > (g + b) * 2 && r > 150) {
+                //check if pixel is past the red threshold
+                if (r > (g + b) && r > 100) {
                     //add a spiral object for each pixel
                     //the l_res img is 6x smaller, *6 for correct coordinates
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    spirals = (Spiral[]) append(spirals, s);
+                }
+                //blue threshold
+                if (b > (r + g - 40) && b > 50) {
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
                     spirals = (Spiral[]) append(spirals, s);
                 }
