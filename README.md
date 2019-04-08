@@ -4,7 +4,8 @@ Uses the colors of the pixels of an image to determine the behavior of particles
 # Instructions
 After downloading the files, open the transformations.pde file inside the transformations folder with Processing ([download](https://processing.org/download/)) and click the play button to run the program.
 ### Replace with a different image
-* find any image and make a copy of the image that is 6 times smaller (MS paint or Preview can resize pictures easily)
-* add the two pictures to the data folder in transformations folder
-* change img = loadImage("picture1.jpg"); to the name of your picture ex. loadImage("image.png"), and repeat for l_res with the smaller picture
-* change size(600,500) to size(length of picture pixels, width of picture pixels)
+* find any low resolution image (about less than 200 pixels wide/long)
+* add the picture to the data folder in transformations folder
+* change l_res = loadImage("picture2.jpg"); to the name of your picture ex. loadImage("monalisa.png")
+* change size(600,500) to size(length of picture pixels * 6, width of picture pixels * 6)
+    * note: size() only accepts integer values, not variables

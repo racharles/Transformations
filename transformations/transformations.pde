@@ -8,7 +8,6 @@ inspired by: Murasaki's Impressionist Blobs
 Rachel Bai
 */
 
-PImage img;
 PImage l_res;
 Spiral[] spirals = new Spiral[0];
 
@@ -16,7 +15,6 @@ Spiral[] spirals = new Spiral[0];
 void setup() {
     size(600,500,P2D);
     frameRate(30);
-    img = loadImage("picture1.jpg");
     l_res = loadImage("picture2.jpg");
     noStroke();
     //sort and copy the pixels of img into objects that can be moved
