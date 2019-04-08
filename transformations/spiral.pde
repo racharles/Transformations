@@ -17,14 +17,14 @@ class Spiral {
 
     void move() {
         //theta and r for polar equation of a spiral (r = theta)
-        if (theta < random(58,60) && reverse == false) {
+        if (theta < 50 && reverse == false) {
             //slight variance in rotational speed for a more natural system
             theta += random(0.05,0.15);
             r += 0.1;
         } else if (theta > 0) {
             //reverse movement
-            theta -= random(0.13,0.15);
-            r -= 0.15;
+            theta -= 0.2;
+            r -= 0.2;
             reverse = true;
         } else {
             //start forward motion again
