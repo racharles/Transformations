@@ -34,14 +34,17 @@ void draw() {
 }
 
 void sort(PImage img) {
+    //access the xy pixels of the image by looping through the pixel array
     img.loadPixels();
     for (int y = 0; y < img.height; ++y) {
         for (int x = 0; x < img.width; ++x) {
+            //convert xy coordinate to location in pixel array
             int loc = x + y * img.width;
 
             float r = red(img.pixels[loc]);
             float g = green(img.pixels[loc]);
             float b = blue(img.pixels[loc]);
+
             //sort by color
             if (loc < img.pixels.length) {
                 //check if pixel is past the red threshold on image
