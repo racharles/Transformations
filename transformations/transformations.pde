@@ -23,8 +23,8 @@ void setup() {
 }
 
 void draw() {
-    background(l_res);
-    //background(255);
+    //background(l_res);
+    background(255);
     //move spiral objects
     for (int i = 0; i < spirals.length; ++i) {
         spirals[i].move();
@@ -46,17 +46,48 @@ void sort(PImage img) {
 
             //sort by color
             if (loc < img.pixels.length) {
-                //check if pixel is past the red threshold
-                if (r > (g + b) && r > 100) {
-                    //add a spiral object for each pixel
-                    //the l_res img is 6x smaller, *6 for correct coordinates
+                if (r > (g + b + 10) && r > 100 && g < 70) {
+                    //red spiral
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
                     spirals = (Spiral[]) append(spirals, s);
-                }
-                //blue threshold
-                if (b > (r + g - 40) && b > 50) {
+
+                } else if (r > 200 && g > 170 && b < 120) {
+                    //yellow
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    spirals = (Spiral[]) append(spirals, s);
+                    //spirals = (Spiral[]) append(spirals, s);
+
+                } else if (r > 200 && g > 70 && b < 50) {
+                    //orange
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    //spirals = (Spiral[]) append(spirals, s);
+
+                } else if (r > 200 && g < 180 && b > 80) {
+                    //pink
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    //spirals = (Spiral[]) append(spirals, s);
+
+                } else if (abs(r - b) < 20 && g < 70 && r > 80) {
+                    //purple
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    //spirals = (Spiral[]) append(spirals, s);
+
+                } else if (b > (r + g - 40) && b > 50 && r + g > 50) {
+                    //blue
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    //spirals = (Spiral[]) append(spirals, s);
+                } else if (g > 200) {
+                    //green
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    //spirals = (Spiral[]) append(spirals, s);
+
+                } else if (r + g + b < 70) {
+                    //black
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    //spirals = (Spiral[]) append(spirals, s);
+
+                } else {
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    //spirals = (Spiral[]) append(spirals, s);
                 }
             }
         }
