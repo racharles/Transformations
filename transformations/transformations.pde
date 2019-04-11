@@ -16,7 +16,7 @@ void setup() {
     size(600,500,P2D);
     frameRate(30);
     ellipseMode(CORNER);
-    l_res = loadImage("picture2.jpg");
+    l_res = loadImage("picture.jpg");
     noStroke();
     //sort and copy the pixels of img into objects that can be moved
     sort(l_res);
@@ -28,7 +28,7 @@ void draw() {
     background(0);
     //move spiral objects
     for (int i = 0; i < spirals.length; ++i) {
-        spirals[i].move();
+        //spirals[i].move();
         spirals[i].display();
     }
 }
@@ -48,7 +48,7 @@ void sort(PImage img) {
             //sort by color
             if (loc < img.pixels.length) {
                 if (r + g + b < 60 || (r + g + b / 3) < 50) {
-                    // black/dark colors
+                    // dark or black colors
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
                     spirals = (Spiral[]) append(spirals, s);
 
@@ -110,8 +110,8 @@ void sort(PImage img) {
 
                 } else {
                     //convert to green
-                    if (g < 255-40) {
-                        g += 40;
+                    if (g < 225) {
+                        g += 30;
                     }
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
                     spirals = (Spiral[]) append(spirals, s);
