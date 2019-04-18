@@ -1,11 +1,12 @@
 class Spiral {
     float x;
     float y;
+    color c;
+
     float r;
     float theta;
     float px;
     float py;
-    color c;
     boolean reverse = false;
 
 

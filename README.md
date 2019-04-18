@@ -14,5 +14,5 @@ After downloading the files, open the transformations.pde file inside the transf
 * Daniel Shiffman's [processing tutorials](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw)
 * Ms. Horejsi
 ### Artwork
-* "Reflections of the blue rain" by Leonid Afremov ([website](https://afremov.com/en/))
-* "Any Minute Now" by Aenami ([artstation](https://www.artstation.com/aenamiart))
+* picture: "Reflections of the blue rain" by Leonid Afremov ([website](https://afremov.com/en/))
+* picture1: "Any Minute Now" by Aenami ([artstation](https://www.artstation.com/aenamiart))
