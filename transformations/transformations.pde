@@ -11,6 +11,7 @@ Rachel Bai
 PImage l_res;
 Spiral[] spirals = new Spiral[0];
 Wave[] waves = new Wave[0];
+Shimmer[] shimmers = new Shimmer[0];
 
 
 void setup() {
@@ -30,6 +31,10 @@ void draw() {
     //move every object
     /*cooler colors in back because they fade into background, reds and oranges
     also have more action*/
+    for (int i = 0; i < shimmers.length; ++i) {
+        shimmers[i].move();
+        shimmers[i].display();
+    }
     for (int i = 0; i < waves.length; ++i) {
         waves[i].move();
         waves[i].display();
@@ -56,8 +61,8 @@ void sort(PImage img) {
             if (loc < img.pixels.length) {
                 if (r + g + b < 60 || (r + g + b / 3) < 50) {
                     // dark or black colors
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
+                    Shimmer s = new Shimmer(x * 6, y * 6, color(r, g, b));
+                    shimmers = (Shimmer[]) append(shimmers, s);
 
                 } else if (r + g + b > 200 * 3) {
                     // white/pastels
