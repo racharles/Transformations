@@ -12,10 +12,13 @@ PImage l_res;
 Spiral[] spirals = new Spiral[0];
 Wave[] waves = new Wave[0];
 Shimmer[] shimmers = new Shimmer[0];
+Floater[] floaters = new Floater[0];
+Follower[] followers = new Follower[0];
 
 
 void setup() {
-    size(600,498,P2D);
+    size(600,498,P2D); //picture: 6(100 x 83)
+    //size(1200,672,P2D);//picture1: 6(200 x 112)
     frameRate(30);
     ellipseMode(CORNER);
     l_res = loadImage("picture.jpg");
@@ -34,6 +37,10 @@ void draw() {
     for (int i = 0; i < shimmers.length; ++i) {
         shimmers[i].move();
         shimmers[i].display();
+    }
+    for (int i = 0; i < floaters.length; ++i) {
+        floaters[i].move();
+        floaters[i].display();
     }
     for (int i = 0; i < waves.length; ++i) {
         waves[i].move();
@@ -66,8 +73,7 @@ void sort(PImage img) {
 
                 } else if (r + g + b > 200 * 3) {
                     // white/pastels
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
+
 
                 } else if (abs(r-g) < 25 && abs(g-b) < 25 && abs(r-b) < 25) {
                     // gray
@@ -92,23 +98,20 @@ void sort(PImage img) {
                     /*defining brown is very arbitrary, so lighter browns like
                     beige are not considered brown
                     */
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
 
-                } else if (r > 200 && g > 170 && b < 120) {
+                } else if (r > 200 && g > 160 && b < 120) {
                     // yellow
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
                     //spirals = (Spiral[]) append(spirals, s);
 
                 } else if (r > 150 && g > 40 && g < 170 && g > b + 20 && r > b + g) {
                     // orange
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
+
 
                 } else if (r + 10 >= g && b > g && abs(r - b) < 50) {
                     // dark purple
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
+                    Floater s = new Floater(x * 6, y * 6, color(r, g, b));
+                    floaters = (Floater[]) append(floaters, s);
 
                 } else if (b > r && b + 25 >= g && b > 20) {
                     // blue, includes cyan and teal

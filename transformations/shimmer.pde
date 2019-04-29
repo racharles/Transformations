@@ -9,7 +9,7 @@ class Shimmer {
     float change;
     float px;
     float py;
-    //rgb are global because they need to remain constants
+    //rgb are global so they remain constant
     float r;
     float g;
     float b;
@@ -36,12 +36,13 @@ class Shimmer {
         //amplify the sine wave so that the result can be seen
         change = sin(theta) * 60;
 
-        /*move to a random position when not visible, and move back to priignal
+        /*move to a random position when not visible, and move back to original
         position when visible*/
-        if (change < -55 && frameCount % 40 == 0) {
+        if (change < -55) {
             px = int(random(100))*6;
             py = int(random(83))*6;
         } else if (change > -40) {
+            //move speed proportional to distance, return at same time
             float v = 0.1;
             float dx = x - px;
             float dy = y - py;
