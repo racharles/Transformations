@@ -50,6 +50,10 @@ void draw() {
         spirals[i].move();
         spirals[i].display();
     }
+    for (int i = 0; i < followers.length; ++i) {
+        followers[i].move();
+        followers[i].display();
+    }
 }
 
 void sort(PImage img) {
@@ -73,7 +77,6 @@ void sort(PImage img) {
 
                 } else if (r + g + b > 200 * 3) {
                     // white/pastels
-
 
                 } else if (abs(r-g) < 25 && abs(g-b) < 25 && abs(r-b) < 25) {
                     // gray
@@ -101,8 +104,8 @@ void sort(PImage img) {
 
                 } else if (r > 200 && g > 160 && b < 120) {
                     // yellow
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
+                    Follower s = new Follower(x * 6, y * 6, color(r, g, b));
+                    followers = (Follower[]) append(followers, s);
 
                 } else if (r > 150 && g > 40 && g < 170 && g > b + 20 && r > b + g) {
                     // orange
