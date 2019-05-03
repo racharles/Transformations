@@ -3,10 +3,10 @@ class Floater {
     float y;
     color c;
 
-    float easing = random(0.05,0.1); //controls speed of particles
     float targetX = random(width);
     float targetY = random(height);
 
+    float easing = random(0.05,0.1); //controls speed of particles
 
     Floater(float tempX, float tempY, color tempCol) {
         x = tempX;
@@ -16,9 +16,19 @@ class Floater {
     }
 
     void move() {
-        //move targets around for effect
-        targetX += random(-5,5);
-        targetY += random(-5,5);
+        //move targets around randomly while constraining to visible area
+        if (targetX > width) {
+            targetX -= 5;
+        } else if (targetX < -6) {
+            targetX += 5;
+        } else if (targetY > height) {
+            targetY -= 5;
+        } else if (targetY < -6) {
+            targetY += 5;
+        } else {
+            targetX += random(-5,5);
+            targetY += random(-5,5);
+        }
         //move toward the chosen target
         float dx = targetX - x;
         float dy = targetY - y;
