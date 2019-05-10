@@ -9,11 +9,13 @@ Rachel Bai
 */
 
 PImage l_res;
-Spiral[] spirals = new Spiral[0];
-Wave[] waves = new Wave[0];
 Shimmer[] shimmers = new Shimmer[0];
 Floater[] floaters = new Floater[0];
+Wave[] waves = new Wave[0];
+Spiral[] spirals = new Spiral[0];
+Flower[] flowers = new Flower[0];
 Follower[] followers = new Follower[0];
+Phaser[] phasers = new Phaser[0];
 
 
 void setup() {
@@ -34,6 +36,7 @@ void draw() {
     //move every object
     /*cooler colors in back because they fade into background, reds and oranges
     also have more action*/
+
     for (int i = 0; i < shimmers.length; ++i) {
         shimmers[i].move();
         shimmers[i].display();
@@ -41,6 +44,10 @@ void draw() {
     for (int i = 0; i < floaters.length; ++i) {
         floaters[i].move();
         floaters[i].display();
+    }
+    for (int i = 0; i < flowers.length; ++i) {
+        flowers[i].move();
+        flowers[i].display();
     }
     for (int i = 0; i < waves.length; ++i) {
         waves[i].move();
@@ -50,9 +57,13 @@ void draw() {
         spirals[i].move();
         spirals[i].display();
     }
+    for (int i = 0; i < phasers.length; ++i) {
+        phasers[i].move();
+        phasers[i].display();
+    }
     for (int i = 0; i < followers.length; ++i) {
         followers[i].move();
-        followers[i].display();
+        //followers[i].display();
     }
 }
 
@@ -77,6 +88,8 @@ void sort(PImage img) {
 
                 } else if (r + g + b > 200 * 3) {
                     // white/pastels
+                    Flower s = new Flower(x * 6, y * 6, color(r, g, b));
+                    flowers = (Flower[]) append(flowers, s);
 
                 } else if (abs(r-g) < 25 && abs(g-b) < 25 && abs(r-b) < 25) {
                     // gray
@@ -94,7 +107,7 @@ void sort(PImage img) {
                             || (r > 200 && r > (g + b) / 2 && g - b < 60 && r > g)) {
                     // pink, peach and lighter purples
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
+                    spirals = (Spiral[]) append(spirals, s);
 
                 } else if (r * 3/5 > g && r < 160 && g - b > 0) {
                     //brown rgb(79, 33, 16), includes cocoa rgb(210, 105, 30)
