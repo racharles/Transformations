@@ -8,8 +8,6 @@ class Flower {
 
     float theta; //for sine
 
-    PVector d = new PVector(0,0);
-
     Flower(float tempX, float tempY, color tempCol) {
         x = tempX;
         y = tempY;
@@ -18,10 +16,10 @@ class Flower {
 
     void move() {
         //controls the flower growing/shrinking
-        size += sin(theta)/2;
+        size += sin(theta)/3;
 
         if (theta < TWO_PI) { //2pi comes from 2nd root of graphing sin(x)
-            theta += 0.3;
+            theta += 0.1;
         } else {
             theta = 0;
         }

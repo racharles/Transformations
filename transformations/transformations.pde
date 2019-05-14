@@ -21,6 +21,7 @@ Phaser[] phasers = new Phaser[0];
 void setup() {
     size(600,498,P2D); //picture: 6(100 x 83)
     //size(1200,672,P2D);//picture1: 6(200 x 112)
+    //size(600,900); //picture2: 6(100 x 150)
     frameRate(30);
     ellipseMode(CORNER);
     l_res = loadImage("picture.jpg");
@@ -88,8 +89,8 @@ void sort(PImage img) {
 
                 } else if (r + g + b > 200 * 3) {
                     // white/pastels
-                    Flower s = new Flower(x * 6, y * 6, color(r, g, b));
-                    flowers = (Flower[]) append(flowers, s);
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    spirals = (Spiral[]) append(spirals, s);
 
                 } else if (abs(r-g) < 25 && abs(g-b) < 25 && abs(r-b) < 25) {
                     // gray
@@ -99,8 +100,7 @@ void sort(PImage img) {
                 } else if (r > (g + b) && r >= 55 && g < 80 && r > g + 40
                           && (g - b < 40 || r > 170)) {
                     // red spiral,includes maroon
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    spirals = (Spiral[]) append(spirals, s);
+
 
                 } else if ((r > 160 && b + 10 > g && abs(b-g) < 55 && g < 230 && (b+g)/2 < r)
                             || (r > 50 && r > g && r > b && abs(g-b) < 15)
@@ -117,8 +117,10 @@ void sort(PImage img) {
 
                 } else if (r > 200 && g > 160 && b < 120) {
                     // yellow
-                    Follower s = new Follower(x * 6, y * 6, color(r, g, b));
-                    followers = (Follower[]) append(followers, s);
+                    // Follower s = new Follower(x * 6, y * 6, color(r, g, b));
+                    // followers = (Follower[]) append(followers, s);
+                    Flower s = new Flower(x * 6, y * 6, color(r, g, b));
+                    flowers = (Flower[]) append(flowers, s);
 
                 } else if (r > 150 && g > 40 && g < 170 && g > b + 20 && r > b + g) {
                     // orange

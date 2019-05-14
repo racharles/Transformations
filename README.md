@@ -19,3 +19,4 @@ After downloading the files, open the transformations.pde file inside the transf
 ### Artwork
 * picture: "Reflections of the blue rain" by Leonid Afremov ([website](https://afremov.com/en/))
 * picture1: "Any Minute Now" by Aenami ([artstation](https://www.artstation.com/aenamiart))
+* picture2: "Mona Lisa" by Leonardo da Vinci
