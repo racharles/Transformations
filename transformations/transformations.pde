@@ -41,19 +41,19 @@ void draw() {
 
     for (int i = 0; i < shimmers.length; ++i) {
         shimmers[i].move();
-        //shimmers[i].display();
+        shimmers[i].display();
     }
     for (int i = 0; i < floaters.length; ++i) {
         floaters[i].move();
-        //floaters[i].display();
+        floaters[i].display();
     }
     for (int i = 0; i < flowers.length; ++i) {
         flowers[i].move();
-        //flowers[i].display();
+        flowers[i].display();
     }
     for (int i = 0; i < waves.length; ++i) {
         waves[i].move();
-        //waves[i].display();
+        waves[i].display();
     }
     for (int i = 0; i < bouncers.length; ++i) {
         bouncers[i].move();
@@ -61,11 +61,11 @@ void draw() {
     }
     for (int i = 0; i < spirals.length; ++i) {
         spirals[i].move();
-        //spirals[i].display();
+        spirals[i].display();
     }
     for (int i = 0; i < dust.length; ++i) {
         dust[i].move();
-        //dust[i].display();
+        dust[i].display();
     }
     for (int i = 0; i < followers.length; ++i) {
         followers[i].move();
