@@ -1,9 +1,11 @@
-class Phaser {
+class Dust {
     float x;
     float y;
     color c;
 
-    Phaser(float tempX, float tempY, color tempCol) {
+    PVector loc;
+
+    Dust(float tempX, float tempY, color tempCol) {
         x = tempX;
         y = tempY;
         c = tempCol;
@@ -11,7 +13,10 @@ class Phaser {
     }
 
     void move() {
-        
+        x += random(-2,2);
+        if (y < height - 6) {
+            y += 1;
+        }
     }
 
     void display() {

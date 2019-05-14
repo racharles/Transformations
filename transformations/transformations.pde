@@ -15,7 +15,8 @@ Wave[] waves = new Wave[0];
 Spiral[] spirals = new Spiral[0];
 Flower[] flowers = new Flower[0];
 Follower[] followers = new Follower[0];
-Phaser[] phasers = new Phaser[0];
+Dust[] dust = new Dust[0];
+Bouncer[] bouncers = new Bouncer[0];
 
 
 void setup() {
@@ -40,32 +41,37 @@ void draw() {
 
     for (int i = 0; i < shimmers.length; ++i) {
         shimmers[i].move();
-        shimmers[i].display();
+        //shimmers[i].display();
     }
     for (int i = 0; i < floaters.length; ++i) {
         floaters[i].move();
-        floaters[i].display();
+        //floaters[i].display();
     }
     for (int i = 0; i < flowers.length; ++i) {
         flowers[i].move();
-        flowers[i].display();
+        //flowers[i].display();
     }
     for (int i = 0; i < waves.length; ++i) {
         waves[i].move();
-        waves[i].display();
+        //waves[i].display();
+    }
+    for (int i = 0; i < bouncers.length; ++i) {
+        bouncers[i].move();
+        bouncers[i].display();
     }
     for (int i = 0; i < spirals.length; ++i) {
         spirals[i].move();
-        spirals[i].display();
+        //spirals[i].display();
     }
-    for (int i = 0; i < phasers.length; ++i) {
-        phasers[i].move();
-        phasers[i].display();
+    for (int i = 0; i < dust.length; ++i) {
+        dust[i].move();
+        //dust[i].display();
     }
     for (int i = 0; i < followers.length; ++i) {
         followers[i].move();
         //followers[i].display();
     }
+
 }
 
 void sort(PImage img) {
@@ -89,17 +95,20 @@ void sort(PImage img) {
 
                 } else if (r + g + b > 200 * 3) {
                     // white/pastels
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    spirals = (Spiral[]) append(spirals, s);
+                    Floater s = new Floater(x * 6, y * 6, color(r, g, b));
+                    floaters = (Floater[]) append(floaters, s);
 
                 } else if (abs(r-g) < 25 && abs(g-b) < 25 && abs(r-b) < 25) {
                     // gray
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
+                    //drift down and settle
+                    Dust s = new Dust(x * 6, y * 6, color(r, g, b));
+                    dust = (Dust[]) append(dust, s);
 
                 } else if (r > (g + b) && r >= 55 && g < 80 && r > g + 40
                           && (g - b < 40 || r > 170)) {
                     // red spiral,includes maroon
+                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
+                    spirals = (Spiral[]) append(spirals, s);
 
 
                 } else if ((r > 160 && b + 10 > g && abs(b-g) < 55 && g < 230 && (b+g)/2 < r)
@@ -114,6 +123,9 @@ void sort(PImage img) {
                     /*defining brown is very arbitrary, so lighter browns like
                     beige are not considered brown
                     */
+                    //bouncing ball
+                    Bouncer s = new Bouncer(x * 6, y * 6, color(r, g, b));
+                    bouncers = (Bouncer[]) append(bouncers, s);
 
                 } else if (r > 200 && g > 160 && b < 120) {
                     // yellow
@@ -124,6 +136,7 @@ void sort(PImage img) {
 
                 } else if (r > 150 && g > 40 && g < 170 && g > b + 20 && r > b + g) {
                     // orange
+                    //makes orangebows, semicircles
 
 
                 } else if (r + 10 >= g && b > g && abs(r - b) < 50) {
@@ -140,14 +153,14 @@ void sort(PImage img) {
                     // green, includes olive
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
                     //spirals = (Spiral[]) append(spirals, s);
+                    //plants self, then grows into fractal tree
 
                 } else {
-                    //green behavior
+                    //change to green particles
                     if (g + 20 < 255) {
                         //g += 20;
                     }
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
+
                 }
             }
         }

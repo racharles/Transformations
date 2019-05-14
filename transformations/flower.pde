@@ -33,7 +33,7 @@ class Flower {
         ellipseMode(CENTER);
         rotate(radians(frameCount)); //rotate the entire flower
 
-        //rotate and draw the petals around circle
+        //draw the petals around circle by rotating
         for (int i = 0; i < 360/angle; ++i) {
             ellipse(size,size,6,6);
             rotate(radians(angle));
