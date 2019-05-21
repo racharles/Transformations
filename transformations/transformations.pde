@@ -14,10 +14,9 @@ Floater[] floaters = new Floater[0];
 Wave[] waves = new Wave[0];
 Spiral[] spirals = new Spiral[0];
 Flower[] flowers = new Flower[0];
-Follower[] followers = new Follower[0];
 Dust[] dust = new Dust[0];
 Bouncer[] bouncers = new Bouncer[0];
-
+Rainbow[] rainbows = new Rainbow[0];
 
 void setup() {
     size(600,498,P2D); //picture: 6(100 x 83)
@@ -47,6 +46,10 @@ void draw() {
         floaters[i].move();
         floaters[i].display();
     }
+    for (int i = 0; i < dust.length; ++i) {
+        dust[i].move();
+        dust[i].display();
+    }
     for (int i = 0; i < flowers.length; ++i) {
         flowers[i].move();
         flowers[i].display();
@@ -59,19 +62,14 @@ void draw() {
         bouncers[i].move();
         bouncers[i].display();
     }
+    for (int i = 0; i < rainbows.length; ++i) {
+        rainbows[i].move();
+        rainbows[i].display();
+    }
     for (int i = 0; i < spirals.length; ++i) {
         spirals[i].move();
         spirals[i].display();
     }
-    for (int i = 0; i < dust.length; ++i) {
-        dust[i].move();
-        dust[i].display();
-    }
-    for (int i = 0; i < followers.length; ++i) {
-        followers[i].move();
-        //followers[i].display();
-    }
-
 }
 
 void sort(PImage img) {
@@ -100,7 +98,6 @@ void sort(PImage img) {
 
                 } else if (abs(r-g) < 25 && abs(g-b) < 25 && abs(r-b) < 25) {
                     // gray
-                    //drift down and settle
                     Dust s = new Dust(x * 6, y * 6, color(r, g, b));
                     dust = (Dust[]) append(dust, s);
 
@@ -109,7 +106,6 @@ void sort(PImage img) {
                     // red spiral,includes maroon
                     Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
                     spirals = (Spiral[]) append(spirals, s);
-
 
                 } else if ((r > 160 && b + 10 > g && abs(b-g) < 55 && g < 230 && (b+g)/2 < r)
                             || (r > 50 && r > g && r > b && abs(g-b) < 15)
@@ -136,8 +132,8 @@ void sort(PImage img) {
 
                 } else if (r > 150 && g > 40 && g < 170 && g > b + 20 && r > b + g) {
                     // orange
-                    //makes orangebows, semicircles
-
+                    Rainbow s = new Rainbow(x * 6, y * 6, color(r, g, b));
+                    rainbows = (Rainbow[]) append(rainbows, s);
 
                 } else if (r + 10 >= g && b > g && abs(r - b) < 50) {
                     // dark purple

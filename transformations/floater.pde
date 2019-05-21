@@ -12,11 +12,10 @@ class Floater {
         x = tempX;
         y = tempY;
         c = tempCol;
-
     }
 
     void move() {
-        //move targets around randomly while constraining to visible area
+        //move targets around randomly while constraining to canvas
         if (targetX > width) {
             targetX -= 5;
         } else if (targetX < -6) {

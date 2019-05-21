@@ -4,7 +4,7 @@ class Bouncer {
     PVector loc;
     PVector v = new PVector(random(-1,1),random(-2,2)); //speed
     float acceleration = 1; //1 = neutral, does not slow or speed up
-    float topspeed = 6; //controls the max speed
+    float topspeed = 4; //controls the max speed
 
     Bouncer(float x, float y, color tempCol) {
         c = tempCol;
