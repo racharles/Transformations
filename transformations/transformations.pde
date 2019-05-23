@@ -17,14 +17,16 @@ Flower[] flowers = new Flower[0];
 Dust[] dust = new Dust[0];
 Bouncer[] bouncers = new Bouncer[0];
 Rainbow[] rainbows = new Rainbow[0];
+Plant[] plants = new Plant[0];
 
 void setup() {
-    size(600,498,P2D); //picture: 6(100 x 83)
+    //size(600,498,P2D); //picture: 6(100 x 83)
     //size(1200,672,P2D);//picture1: 6(200 x 112)
-    //size(600,900); //picture2: 6(100 x 150)
+    size(600,900); //picture2: 6(100 x 150)
+    //size(600,480); //picture3: 6(100 x 80)
     frameRate(30);
     ellipseMode(CORNER);
-    l_res = loadImage("picture.jpg");
+    l_res = loadImage("picture2.jpg");
     noStroke();
     //sort and copy the pixels of img into objects that can be moved
     sort(l_res);
@@ -35,8 +37,6 @@ void draw() {
     //background(l_res);
     background(0);
     //move every object
-    /*cooler colors in back because they fade into background, reds and oranges
-    also have more action*/
 
     for (int i = 0; i < shimmers.length; ++i) {
         shimmers[i].move();
@@ -70,6 +70,11 @@ void draw() {
         spirals[i].move();
         spirals[i].display();
     }
+    for (int i = 0; i < plants.length; ++i) {
+        plants[i].move();
+        plants[i].display();
+    }
+    noStroke();
 }
 
 void sort(PImage img) {
@@ -147,14 +152,14 @@ void sort(PImage img) {
 
                 } else if ((g > r + 3 && g > b) || (b + 40 < g && g + 20 > r)) {
                     // green, includes olive
-                    Spiral s = new Spiral(x * 6, y * 6, color(r, g, b));
-                    //spirals = (Spiral[]) append(spirals, s);
-                    //plants self, then grows into fractal tree
+                    Plant s = new Plant(x * 6, y * 6, color(r, g, b));
+                    //plants = (Plant[]) append(plants, s);
 
                 } else {
-                    //change to green particles
+                    //same as green particles
                     if (g + 20 < 255) {
-                        //g += 20;
+                        Plant s = new Plant(x * 6, y * 6, color(r, g, b));
+                        plants = (Plant[]) append(plants, s);
                     }
 
                 }
